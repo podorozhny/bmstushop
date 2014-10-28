@@ -1,0 +1,22 @@
+services:
+  podorozhny.support.listener.flash:
+    class: Podorozhny\CoreBundle\EventListener\Support\FlashListener
+    arguments:
+      - @session
+      - @translator
+    tags:
+        - { name: kernel.event_subscriber }
+
+  podorozhny.support.listener.mailer:
+    class: Podorozhny\CoreBundle\EventListener\Support\MailerListener
+    arguments:
+      - @podorozhny.mailer.contact
+    tags:
+        - { name: kernel.event_subscriber }
+
+  podorozhny.support.listener.sms:
+    class: Podorozhny\CoreBundle\EventListener\Support\SmsListener
+    arguments:
+      - @podorozhny.sms.sender
+    tags:
+        - { name: kernel.event_subscriber }

@@ -1,0 +1,13 @@
+support_contact_new:
+  pattern: /
+  defaults:
+    _controller: podorozhny.support.controller.contact:newAction
+  requirements:
+    _method: GET
+
+support_contact_create:
+  pattern: /create
+  defaults:
+    _controller: podorozhny.support.controller.contact:createAction
+  requirements:
+    _method: POST

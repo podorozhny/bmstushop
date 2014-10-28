@@ -1,0 +1,17 @@
+{% extends 'CoreBundle:Shop:layout.html.twig' %}
+
+{% block title %}Welcome to {{ parent() }}!{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/shop_categories.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <section class="site-section site-content">
+        <div class="container">
+            {% include 'CoreBundle:Shop/ProductCategory:list_content.html.twig' %}
+        </div>
+    </section>
+{% endblock %}

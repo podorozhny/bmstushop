@@ -1,0 +1,12 @@
+{% extends 'CoreBundle:Shop:layout.html.twig' %}
+
+{% block title %}{{ product.name }} / Products / {{ parent() }}{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <section class="site-section site-content">
+        <div class="container">
+            {% include 'CoreBundle:Shop/Product:show_content.html.twig' %}
+        </div>
+    </section>
+{% endblock %}

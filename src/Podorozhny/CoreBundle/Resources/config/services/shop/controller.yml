@@ -1,0 +1,18 @@
+services:
+  podorozhny.shop.controller.product:
+    class: Podorozhny\CoreBundle\Controller\Shop\ProductController
+    parent: podorozhny.controller.abstract
+    arguments:
+      - @podorozhny.shop.product_manager
+
+  podorozhny.shop.controller.product_brand:
+    class: Podorozhny\CoreBundle\Controller\Shop\ProductBrandController
+    parent: podorozhny.controller.abstract
+    arguments:
+      - @podorozhny.shop.product_brand_manager
+
+  podorozhny.shop.controller.product_category:
+    class: Podorozhny\CoreBundle\Controller\Shop\ProductCategoryController
+    parent: podorozhny.controller.abstract
+    arguments:
+      - @podorozhny.shop.product_category_manager

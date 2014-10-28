@@ -1,0 +1,49 @@
+parameters:
+  podorozhny.frontend.firewall_name: frontend
+
+services:
+  podorozhny.frontend.listener.interactive_login_listener:
+    class: Podorozhny\CoreBundle\EventListener\Frontend\LastLoginListener
+    arguments:
+      - @podorozhny.frontend.user_manager
+    tags:
+      - { name: kernel.event_subscriber }
+
+  podorozhny.frontend.listener.user_listener:
+    class: Podorozhny\CoreBundle\EventListener\Frontend\UserListener
+    public: false
+    arguments:
+      - @service_container
+    tags:
+      - { name: doctrine.event_subscriber }
+
+  podorozhny.frontend.listener.authentication:
+    class: Podorozhny\CoreBundle\EventListener\Frontend\AuthenticationListener
+    arguments:
+      - @podorozhny.frontend.security.login_manager
+      - '%podorozhny.frontend.firewall_name%'
+    tags:
+      - { name: kernel.event_subscriber }
+
+  podorozhny.frontend.listener.confirmation:
+    class: Podorozhny\CoreBundle\EventListener\Frontend\ConfirmationListener
+    arguments:
+      - @podorozhny.frontend.user_manager
+      - @podorozhny.mailer.customer_welcome
+    tags:
+        - { name: kernel.event_subscriber }
+
+  podorozhny.frontend.listener.flash:
+    class: Podorozhny\CoreBundle\EventListener\Frontend\FlashListener
+    arguments:
+      - @session
+      - @translator
+    tags:
+        - { name: kernel.event_subscriber }
+
+  podorozhny.frontend.listener.sms:
+    class: Podorozhny\CoreBundle\EventListener\Frontend\SmsListener
+    arguments:
+      - @podorozhny.sms.sender
+    tags:
+        - { name: kernel.event_subscriber }

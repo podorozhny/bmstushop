@@ -1,0 +1,37 @@
+Podorozhny\Model\Support\Contact:
+  type: entity
+  table: support_contacts
+  repositoryClass: Podorozhny\Repository\Support\ContactRepository
+  manyToOne:
+    subject:
+      targetEntity: Podorozhny\Model\Support\ContactSubject
+      inversedBy: contacts
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    createdAt:
+      column: created_at
+      type: datetime
+    firstname:
+      type: string
+      length: 100
+      nullable: true
+    lastname:
+      type: string
+      length: 100
+      nullable: true
+    email:
+      type: string
+      length: 100
+    message:
+      type: text
+#    useragent:
+#      type: string
+#      length: 100000
+#    ip:
+#      type: string
+#      length: 100000

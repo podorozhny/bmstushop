@@ -1,0 +1,14 @@
+shop_product_brand_list:
+  pattern: /brands
+  defaults:
+    _controller: podorozhny.shop.controller.product_brand:listAction
+  requirements:
+    _method: GET
+
+shop_product_brand_show:
+  pattern: /brand/{brand_slug}
+  defaults:
+    _controller: podorozhny.shop.controller.product_brand:showAction
+  requirements:
+    _method: GET
+    brand_slug: .+

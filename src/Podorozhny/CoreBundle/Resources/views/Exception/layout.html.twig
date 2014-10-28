@@ -1,0 +1,29 @@
+{% extends 'CoreBundle::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/error.css') }}" />
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <meta name="robots" content="noindex, follow" />
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div id="error-container">
+        <div class="row error-options">
+            <div class="col-md-12">
+                <h3><i class="fa fa-chevron-circle-left text-muted"></i> <a href="{{ path('shop_product_category_list') }}">Go Home</a></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

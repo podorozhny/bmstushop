@@ -1,0 +1,18 @@
+{% extends 'CoreBundle:Shop:layout.html.twig' %}
+
+{% block title %}{{ category.name }} / {{ parent() }}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/shop_products.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <section class="site-section site-content">
+        <div class="container">
+            <h3>{{ category.name }}</h3>
+            {% include 'CoreBundle:Shop/Product:list_content.html.twig' with { 'products': category.products } %}
+        </div>
+    </section>
+{% endblock %}

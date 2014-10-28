@@ -1,0 +1,10 @@
+services:
+  podorozhny.twig.compress_output_extension:
+    class: Podorozhny\Twig\Extension\CompressOutputExtension
+    tags:
+      - { name: twig.extension }
+
+  podorozhny.twig.money_extension:
+    class: Podorozhny\Twig\Extension\MoneyExtension
+    tags:
+      - { name: twig.extension }

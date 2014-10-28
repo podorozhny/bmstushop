@@ -1,0 +1,31 @@
+parameters:
+  podorozhny.database.driver: pdo_mysql
+  podorozhny.database.host: 127.0.0.1
+  podorozhny.database.port: ~
+  podorozhny.database.name: bmstushop
+  podorozhny.database.path: ~
+  podorozhny.database.user: ivan
+  podorozhny.database.password: ~
+
+  locale: en
+  podorozhny.locales: en|ru
+  podorozhny.locale_names:
+    - { short: 'en', name: 'English' }
+    - { short: 'ru', name: 'Русский' }
+
+  secret: ~
+
+  frontend_host: bmstushop.local
+
+  podorozhny.company.year: 2014
+  podorozhny.company.name: BMSTUShop
+  podorozhny.company.strongname: <strong>BMSTU</strong>Shop
+  podorozhny.company.desc: Homework project
+
+  twig.controller.exception.class: Podorozhny\CoreBundle\Controller\ExceptionController
+
+  #validator.translation_domain: messages
+  
+  podorozhny.uploader.filesystem: podorozhny_image
+  podorozhny.uploader.path: %kernel.root_dir%/../web/uploads/image
+  podorozhny.uploader.relative.path: uploads/image/

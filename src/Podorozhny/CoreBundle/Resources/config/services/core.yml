@@ -1,0 +1,37 @@
+services:
+  podorozhny.slugger:
+    class: Podorozhny\Util\Slugger
+
+  podorozhny.util.canonicalizer:
+    class: Podorozhny\Util\Canonicalizer
+    public: false
+
+  podorozhny.util.token_generator:
+    class: Podorozhny\Util\TokenGenerator
+    public: false
+    arguments:
+      - @?logger
+
+  podorozhny.filesystem:
+    class: Gaufrette\Filesystem
+    factory_method: get
+    factory_service: knp_gaufrette.filesystem_map
+    arguments:
+      - '%podorozhny.uploader.filesystem%'
+
+  podorozhny.image_uploader:
+    class: Podorozhny\Uploader\ImageUploader
+    arguments:
+      - @podorozhny.filesystem
+
+  podorozhny.controller.abstract:
+    class: Podorozhny\CoreBundle\Controller\AbstractController
+    calls:
+#      - [setFormFactory, [@?form.factory]]
+      - [setRouter, [@router]]
+      - [setTranslator, [@translator]]
+      - [setSecurityContext, [@?security.context]]
+      - [setTemplating, [@?templating]]
+      - [setSession, [@?session]]
+      - [setRequestStack, [@?request_stack]]
+      - [setDispatcher, [@?event_dispatcher]]

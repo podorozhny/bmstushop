@@ -1,0 +1,6 @@
+frontend_page_about:
+  pattern: /about
+  defaults:
+    _controller: podorozhny.frontend.controller.page:aboutAction
+  requirements:
+    _method: GET

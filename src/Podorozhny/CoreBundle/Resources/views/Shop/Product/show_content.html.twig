@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-4">
+        {% if product.primaryPhoto %}
+            <img src="{{ asset(podorozhny_uploader_relative_path ~ product.primaryPhoto.path ) }}" alt="{{ product.name }}" class="img-responsive" />
+        {% else %}
+            <h3 class="text-center">Нет фото</h3>
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+        <h1 class="h3">{{ product.name }}</h1>
+        <h2 class="h4"><span class="label label-primary">{{ product.price|money_rub }}</span></h2>
+        {% if product.description %}
+            <br />
+            <p>{% autoescape false %}{{ product.description }}{% endautoescape %}</p>
+        {% endif %}
+    </div>
+</div>

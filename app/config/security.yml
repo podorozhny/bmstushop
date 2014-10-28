@@ -1,0 +1,35 @@
+security:
+  encoders:
+    Podorozhny\Model\Frontend\UserInterface:
+      algorithm: sha512
+      iterations: 5000
+      encode_as_base64: false
+  providers:
+    frontend_user_provider:
+      id: podorozhny.frontend.security.user_provider
+  firewalls:
+    frontend:
+      host: %frontend_host%
+      pattern: ^/
+      form_login:
+        provider: frontend_user_provider
+        login_path: /login
+        check_path: /login_check
+        failure_path: /login
+        default_target_path: /
+      logout:
+        path: /logout
+        target: /
+      anonymous: true
+      remember_me:
+        key: %secret%
+        name: FRONTEND_REMEMBER_ME
+        lifetime: 31536000
+        always_remember_me: true
+        remember_me_parameter: _remember_me
+    dev:
+      pattern: ^/(_(profiler|wdt)|bundles|uploads|css|fonts|img|js)/
+      security: false
+  access_control:
+    - { host: %frontend_host%, path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { host: %frontend_host%, path: ^/, role: [IS_AUTHENTICATED_ANONYMOUSLY, ROLE_USER] }

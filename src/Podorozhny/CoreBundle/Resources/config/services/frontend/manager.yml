@@ -1,0 +1,9 @@
+services:
+  podorozhny.frontend.user_manager:
+    class: Podorozhny\Manager\Frontend\UserManager
+    arguments:
+      - @podorozhny.entity_manager
+      - @event_dispatcher
+      - 'Podorozhny\Model\Frontend\User'
+      - @security.encoder_factory
+      - @podorozhny.util.canonicalizer

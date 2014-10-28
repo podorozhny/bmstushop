@@ -1,0 +1,39 @@
+parameters:
+  podorozhny.mailer.mailgun.api_key: key-2b5f66ef3328f183e4896817532b3fdc
+  podorozhny.mailer.mailgun.public_api_key: pubkey-e645f763e928871237c406c1a189ff66
+  podorozhny.mailer.mailgun.domain: dododev.ru
+
+  podorozhny.mailer.contact.template: CoreBundle:Email:contact.html.twig
+  podorozhny.mailer.contact.from_address: backend@dododev.ru
+  podorozhny.mailer.contact.from_name: %podorozhny.company.name% Backend
+  podorozhny.mailer.contact.to_address: ivan@podorozhny.ru
+  podorozhny.mailer.contact.to_name: 'Ivan Podorozhny'
+
+  podorozhny.mailer.customer_welcome.template: CoreBundle:Email:customer_welcome.html.twig
+  podorozhny.mailer.customer_welcome.from_address: welcome@dododev.ru
+  podorozhny.mailer.customer_welcome.from_name: %podorozhny.company.name%
+
+services:
+  mailgun:
+    class: Mailgun\Mailgun
+    arguments:
+      - %podorozhny.mailer.mailgun.api_key%
+
+  podorozhny.mailer:
+    class: Podorozhny\Mailer\MailgunMailer
+    arguments:
+      - @mailgun
+      - @twig
+      - %podorozhny.mailer.mailgun.domain%
+
+  podorozhny.mailer.contact:
+    class: Podorozhny\Mailer\Support\ContactMailer
+    arguments:
+      - @podorozhny.mailer
+      - { template: '%podorozhny.mailer.contact.template%', from_address: '%podorozhny.mailer.contact.from_address%', from_name: '%podorozhny.mailer.contact.from_name%', to_address: '%podorozhny.mailer.contact.to_address%', to_name: '%podorozhny.mailer.contact.to_name%' }
+
+  podorozhny.mailer.customer_welcome:
+    class: Podorozhny\Mailer\Frontend\CustomerWelcomeMailer
+    arguments:
+      - @podorozhny.mailer
+      - { template: '%podorozhny.mailer.customer_welcome.template%', from_address: '%podorozhny.mailer.customer_welcome.from_address%', from_name: '%podorozhny.mailer.customer_welcome.from_name%' }

@@ -1,0 +1,51 @@
+Podorozhny\Model\Shop\Product:
+  type: entity
+  table: shop_products
+  repositoryClass: Podorozhny\Repository\Shop\ProductRepository
+  uniqueConstraints:
+    product_slug_category_unique_index:
+      columns: slug, category_id
+  lifecycleCallbacks:
+    prePersist: [ setSlugValue ]
+    preUpdate: [ setSlugValue ]
+  manyToOne:
+    brand:
+      targetEntity: Podorozhny\Model\Shop\ProductBrand
+      inversedBy: products
+    category:
+      targetEntity: Podorozhny\Model\Shop\ProductCategory
+      inversedBy: products
+  oneToMany:
+    photos:
+      targetEntity: Podorozhny\Model\Shop\ProductPhoto
+      mappedBy: product
+  oneToOne:
+    primaryPhoto:
+      targetEntity: Podorozhny\Model\Shop\ProductPhoto
+      joinColumn:
+        name: primary_photo_id
+        referencedColumnName: id
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    createdAt:
+      column: created_at
+      type: datetime
+    name:
+      type: string
+      length: 255
+    description:
+      type: string
+      length: 1000
+      nullable: true
+    slug:
+      type: string
+      length: 255
+    price:
+      type: decimal
+      scale: 2
+      precision: 8

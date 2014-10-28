@@ -1,0 +1,21 @@
+{% extends 'CoreBundle:Email:layout.html.twig' %}
+
+{% block subject %}New contact{% endblock %}
+
+{% block html_content %}
+    {{ parent() }}
+    Привет!<br />
+    <br />
+    <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+    обратился в службу поддержки со следующим сообщением:<br />
+    <br />
+    {#<a target="_blank" href="{{ url('admin_support_contact_edit', { 'id': contact.id }) }}">#}
+        {#{{ url('admin_support_contact_edit', { 'id': contact.id }) }}#}
+    {#</a><br />#}
+    {{ contact.message }}<br />
+    <br />
+    {#Окружение: {{ contact.useragent }}<br />#}
+    {#IP: {{ contact.ip }}<br />#}
+{% endblock %}
+
+{% block signature %}С приветом, форма обратной связи.{% endblock %}

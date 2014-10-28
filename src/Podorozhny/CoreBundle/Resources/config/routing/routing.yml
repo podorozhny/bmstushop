@@ -1,0 +1,11 @@
+frontend:
+  resource: "@CoreBundle/Resources/config/routing/frontend/routes.yml"
+  host: "%frontend_host%"
+
+shop:
+  resource: "@CoreBundle/Resources/config/routing/shop/routes.yml"
+  host: "%frontend_host%"
+
+support:
+  resource: "@CoreBundle/Resources/config/routing/support/routes.yml"
+  host: "%frontend_host%"

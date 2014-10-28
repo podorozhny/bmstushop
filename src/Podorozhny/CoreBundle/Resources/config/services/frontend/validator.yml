@@ -1,0 +1,8 @@
+services:
+  podorozhny.frontend.validator.initializer:
+    class: Podorozhny\CoreBundle\Validator\Frontend\Initializer
+    public: false
+    arguments:
+      - @podorozhny.frontend.user_manager
+    tags:
+      - { name: validator.initializer }

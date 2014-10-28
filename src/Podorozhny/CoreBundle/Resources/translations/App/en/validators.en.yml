@@ -1,0 +1,11 @@
+validation:
+  not_blank: "Should not be blank"
+  length:
+    min: "Must be at least {{ limit }} characters length"
+    max: "Cannot be longer than {{ limit }} characters length"
+  datetime: "{{ value }} is not a valid datetime"
+  email: "{{ value }} is not a valid email"
+  unique: "This value is already used"
+  password:
+#    passwordLegal: "The password cannot match your username"
+    mismatch: "The password fields must match"

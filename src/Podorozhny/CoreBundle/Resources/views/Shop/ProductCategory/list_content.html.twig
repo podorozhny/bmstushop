@@ -1,0 +1,9 @@
+{% if categories %}
+    <div class="row categories">
+        {% for category in categories %}
+            {% include 'CoreBundle:Shop/ProductCategory:list_item_content.html.twig' %}
+        {% endfor %}
+    </div>
+{% else %}
+    Нет категорий.
+{% endif %}

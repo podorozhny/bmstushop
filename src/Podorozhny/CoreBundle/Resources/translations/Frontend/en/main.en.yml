@@ -1,0 +1,8 @@
+frontend:
+  menu:
+    login: Login
+    register: Register
+    logout: Logout
+  footer:
+    about: About Us
+    contact: Contact

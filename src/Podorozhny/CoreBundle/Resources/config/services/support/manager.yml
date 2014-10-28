@@ -1,0 +1,14 @@
+services:
+  podorozhny.support.contact_manager:
+    class: Podorozhny\Manager\Support\ContactManager
+    arguments:
+      - @podorozhny.entity_manager
+      - @event_dispatcher
+      - 'Podorozhny\Model\Support\Contact'
+
+  podorozhny.support.contact_subject_manager:
+    class: Podorozhny\Manager\Support\ContactSubjectManager
+    arguments:
+      - @podorozhny.entity_manager
+      - @event_dispatcher
+      - 'Podorozhny\Model\Support\ContactSubject'

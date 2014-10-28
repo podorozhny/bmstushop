@@ -1,0 +1,15 @@
+Podorozhny\Model\Frontend\User:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: { fields: [email], groups: [registration], message: validation.unique }
+
+  properties:
+    email:
+      - NotBlank: { message: validation.not_blank, groups: [login, registration] }
+      - Length: { max: 255, maxMessage: validation.length.max, groups: [login, registration] }
+      - Email: { message: validation.email, groups: [login, registration] }
+    plainPassword:
+      - NotBlank: { message: validation.not_blank, groups: [login, registration] }
+      - Length: { max: 128, maxMessage: validation.length.max, groups: [login, registration] }
+    firstname:
+      - NotBlank: { message: validation.not_blank, groups: [registration] }
+      - Length: { min: 2, max: 100, minMessage: validation.length.min, maxMessage: validation.length.max, groups: [registration] }

@@ -1,0 +1,20 @@
+{% extends 'CoreBundle::base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/frontend_auth.css') }}" />
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <meta name="robots" content="noindex, follow" />
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}

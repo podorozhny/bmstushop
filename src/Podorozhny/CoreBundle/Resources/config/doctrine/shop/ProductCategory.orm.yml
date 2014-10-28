@@ -1,0 +1,41 @@
+Podorozhny\Model\Shop\ProductCategory:
+  type: entity
+  table: shop_product_categories
+  repositoryClass: Podorozhny\Repository\Shop\ProductCategoryRepository
+  uniqueConstraints:
+    category_slug_parent_category_unique_index:
+      columns: slug, parent_id
+  lifecycleCallbacks:
+    prePersist: [ setSlugValue ]
+    preUpdate: [ setSlugValue ]
+  oneToMany:
+    products:
+      targetEntity: Podorozhny\Model\Shop\Product
+      mappedBy: category
+      orderBy:
+        name: ASC
+    childs:
+      targetEntity: Podorozhny\Model\Shop\ProductCategory
+      mappedBy: parent
+      orderBy:
+        name: ASC
+  manyToOne:
+    parent:
+      targetEntity: Podorozhny\Model\Shop\ProductCategory
+      inversedBy: childs
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    createdAt:
+      column: created_at
+      type: datetime
+    name:
+      type: string
+      length: 255
+    slug:
+      type: string
+      length: 255

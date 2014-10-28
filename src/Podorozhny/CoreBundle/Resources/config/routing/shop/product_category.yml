@@ -1,0 +1,14 @@
+shop_product_category_list:
+  pattern: /
+  defaults:
+    _controller: podorozhny.shop.controller.product_category:listAction
+  requirements:
+    _method: GET
+
+shop_product_category_show:
+  pattern: /category/{category_slug}
+  defaults:
+    _controller: podorozhny.shop.controller.product_category:showAction
+  requirements:
+    _method: GET
+    category_slug: .+

@@ -1,0 +1,28 @@
+services:
+  podorozhny.shop.product_manager:
+    class: Podorozhny\Manager\Shop\ProductManager
+    arguments:
+      - @podorozhny.entity_manager
+      - @event_dispatcher
+      - 'Podorozhny\Model\Shop\Product'
+
+  podorozhny.shop.product_brand_manager:
+    class: Podorozhny\Manager\Shop\ProductBrandManager
+    arguments:
+      - @podorozhny.entity_manager
+      - @event_dispatcher
+      - 'Podorozhny\Model\Shop\ProductBrand'
+
+  podorozhny.shop.product_category_manager:
+    class: Podorozhny\Manager\Shop\ProductCategoryManager
+    arguments:
+      - @podorozhny.entity_manager
+      - @event_dispatcher
+      - 'Podorozhny\Model\Shop\ProductCategory'
+
+  podorozhny.shop.product_photo_manager:
+    class: Podorozhny\Manager\Shop\ProductPhotoManager
+    arguments:
+      - @podorozhny.entity_manager
+      - @event_dispatcher
+      - 'Podorozhny\Model\Shop\ProductPhoto'

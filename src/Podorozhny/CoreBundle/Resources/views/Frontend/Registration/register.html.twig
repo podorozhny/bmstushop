@@ -1,0 +1,16 @@
+{% extends 'CoreBundle:Frontend:layout.html.twig' %}
+
+{% block title %}Registration / {{ parent() }}{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <section class="site-content site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    {% include "CoreBundle:Frontend/Registration:register_content.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

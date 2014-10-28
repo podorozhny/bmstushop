@@ -1,0 +1,15 @@
+<div class="col-md-6 col-sm-12 masonry">
+    <div class="category">
+        <h2 class="h3">{{ category.name }} <sup>{{ category.childsProductsCount }}</sup></h2>
+        <ul>
+            {% for child in category.childs %}
+                <li>
+                    <a href="{{ path("shop_product_category_show", { "category_slug": child.slug }) }}">
+                        {{ child.name }}
+                    </a>
+                    <sup>{{ child.products|length }}</sup>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

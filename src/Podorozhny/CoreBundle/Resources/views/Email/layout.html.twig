@@ -1,0 +1,62 @@
+{% block subject %}
+    {% autoescape false %}{{ podorozhny_company_name }}{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+    {% autoescape false %}
+    {% filter compress %}
+    <!DOCTYPE html>
+    <html lang="{{ app.request.locale }}">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    </head>
+    <body>
+        <div style="border: 0; padding: 0; margin: 0; background-color: #fff; font-family: 'Open Sans', 'PT Sans', 'Helvetica Neue', Helvetica, 'Lucida Grande', Tahoma, Verdana, Arial, 'sans-serif';">
+            <table width="100%" align="center" cellspacing="0" cellpadding="12" style="border-collapse: collapse;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div style="padding-top: 10px; padding-bottom: 24px;">
+                                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top">
+                                                <div style="padding-top: 2px; color: #383434; line-height: 22px; font-weight: bold; font-size: 25px;">
+                                                    {{ podorozhny_company_name }}
+                                                </div>
+                                                <div style="padding-top: 9px; color: #9099a3; line-height: 17px; font-size: 15px;">
+                                                    {{ podorozhny_company_desc }}
+                                                </div>
+                                            </td>
+                                            <td width="46" valign="top" style="width: 46px;">
+                                                <a target="_blank" href="{{ url('shop_product_category_list') }}" style="display: block;">
+                                                    <img width="46" height="46" style="display: block;" alt="" src="{{ asset('img/icon46.png', null, true) }}" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="padding-top: 24px; border-top: 1px solid #f0f0f0;">
+                                {% block html_content %}{% endblock %}
+                                {% block signature %}
+                                    <p>С наилучшими пожеланиями, команда <a target="_blank" href="{{ url('shop_product_category_list') }}">{{ podorozhny_company_name }}</a>.</p>
+                                {% endblock %}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    </html>
+    {% endfilter %}
+    {% endautoescape %}
+{% endblock %}
+
+{% block body_text %}
+    {% filter compress %}
+    {% block text_content %}{% endblock %}
+    С наилучшими пожеланиями, команда {{ podorozhny_company_name }}.
+    {% endfilter %}
+{% endblock %}

@@ -1,0 +1,28 @@
+services:
+  podorozhny.frontend.user_to_email_transformer:
+    class: Podorozhny\CoreBundle\Form\DataTransformer\Frontend\UserToEmailTransformer
+    public: false
+    arguments:
+      - @podorozhny.frontend.user_manager
+
+#  podorozhny.frontend.login.form.type:
+#    class: Podorozhny\CoreBundle\Form\Type\Frontend\LoginFormType
+#    arguments:
+#      - @podorozhny.frontend.user_to_email_transformer
+#    tags:
+#      - { name: form.type, alias: frontend_security_form_login }
+
+  podorozhny.frontend.registration.form.factory:
+    class: Podorozhny\CoreBundle\Form\Factory\FormFactory
+    arguments:
+      - @form.factory
+      - frontend_registration
+      - @podorozhny.frontend.registration.form.type
+      - [registration]
+
+  podorozhny.frontend.registration.form.type:
+    class: Podorozhny\CoreBundle\Form\Type\Frontend\RegistrationFormType
+    arguments:
+      - Podorozhny\Model\Frontend\User
+    tags:
+      - { name: form.type, alias: frontend_registration_form_type }

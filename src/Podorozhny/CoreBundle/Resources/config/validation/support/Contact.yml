@@ -1,0 +1,17 @@
+Podorozhny\Model\Support\Contact:
+  properties:
+    createdAt:
+      - DateTime: { message: validation.datetime }
+    firstname:
+      - Length: { min: 2, max: 100, minMessage: validation.length.min, maxMessage: validation.length.max }
+    lastname:
+      - Length: { min: 2, max: 100, minMessage: validation.length.min, maxMessage: validation.length.max }
+    email:
+      - NotBlank: { message: validation.not_blank }
+      - Length: { max: 100, maxMessage: validation.length.max }
+      - Email: { message: validation.email }
+    subject:
+      - NotBlank: { message: validation.not_blank }
+    message:
+      - NotBlank: { message: validation.not_blank }
+      - Length: { min: 5, max: 5000, minMessage: validation.length.min, maxMessage: validation.length.max }

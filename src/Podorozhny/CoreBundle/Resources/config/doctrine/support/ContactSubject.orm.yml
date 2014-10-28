@@ -1,0 +1,19 @@
+Podorozhny\Model\Support\ContactSubject:
+  type: entity
+  table: support_contact_subjects
+  repositoryClass: Podorozhny\Repository\Support\ContactSubjectRepository
+  oneToMany:
+    contacts:
+      targetEntity: Podorozhny\Model\Support\Contact
+      mappedBy: subject
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 128
+      unique: true

@@ -1,0 +1,7 @@
+services:
+  podorozhny.support.controller.contact:
+    class: Podorozhny\CoreBundle\Controller\Support\ContactController
+    parent: podorozhny.controller.abstract
+    arguments:
+      - @podorozhny.support.contact.form.factory
+      - @podorozhny.support.contact_manager

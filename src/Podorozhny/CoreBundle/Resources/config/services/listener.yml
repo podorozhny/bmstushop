@@ -1,0 +1,8 @@
+services:
+  podorozhny.listener.image_upload:
+    class: Podorozhny\CoreBundle\EventListener\ImageUploadListener
+    tags:
+      - { name: kernel.event_listener, event: podorozhny.shop.product.pre_create, method: uploadImage }
+      - { name: kernel.event_listener, event: podorozhny.shop.product.pre_update, method: uploadImage }
+    arguments:
+      - @podorozhny.image_uploader

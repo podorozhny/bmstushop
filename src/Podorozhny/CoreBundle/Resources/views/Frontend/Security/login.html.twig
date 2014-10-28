@@ -1,0 +1,33 @@
+{% extends 'CoreBundle:Frontend:security_layout.html.twig' %}
+
+{% block title %}Login / {{ parent() }}{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{{ path("frontend_security_check") }}" class="form-signin" novalidate="novalidate" role="form">
+        <h2 class="form-signin-heading">{% autoescape false %}{{ podorozhny_company_strongname }}{% endautoescape %}</h2>
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <div class="alert alert-info">
+            <b>Try demo</b><br />
+            E-mail: tsar@iu4.ru<br />
+            Password: doshiraklapshichka
+        </div>
+        <div class="form-group">
+            <input type="email" name="_username" value="{{ last_username }}" placeholder="E-mail" class="form-control" tabindex="1" autofocus="autofocus" />
+        </div>
+        <div class="form-group">
+            <input type="password" name="_password" placeholder="Password" class="form-control" tabindex="2" />
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="_remember_me" checked="checked" value="on" tabindex="3" />
+                Remember me
+            </label>
+        </div>
+        <div class="form-group form-actions">
+            <button class="btn btn-lg btn-primary btn-block" name="_submit" type="submit" tabindex="4">Login</button>
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    </form>
+{% endblock %}

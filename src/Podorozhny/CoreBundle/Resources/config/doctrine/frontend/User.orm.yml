@@ -1,0 +1,53 @@
+Podorozhny\Model\Frontend\User:
+  type: entity
+  table: frontend_users
+  repositoryClass: Podorozhny\Repository\Frontend\UserRepository
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    createdAt:
+      column: created_at
+      type: datetime
+    lastLoginAt:
+      column: last_login_at
+      type: datetime
+      nullable: true
+    email:
+      type: string
+      length: 255
+      unique: true
+    emailCanonical:
+      column: email_canonical
+      type: string
+      length: 255
+      unique: true
+    password:
+      type: string
+      length: 128
+    salt:
+      type: string
+      length: 32
+    enabled:
+      type: boolean
+    locked:
+      type: boolean
+    confirmationToken:
+      column: confirmation_token
+      type: string
+      length: 32
+      nullable: true
+    confirmationExpiresAt:
+      column: confirmation_expires_at
+      type: datetime
+      nullable: true
+    firstname:
+      type: string
+      length: 100
+    lastname:
+      type: string
+      length: 100
+      nullable: true

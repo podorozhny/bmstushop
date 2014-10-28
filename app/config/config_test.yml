@@ -1,0 +1,24 @@
+imports:
+  - { resource: config.yml }
+
+framework:
+  test: ~
+  default_locale: "en"
+  session:
+    storage_id: session.storage.mock_file
+
+web_profiler:
+  toolbar: false
+  intercept_redirects: false
+
+doctrine:
+  dbal:
+    dbname: %podorozhny.database.name%_test
+    path: %podorozhny.database.path%
+
+monolog:
+  handlers:
+    main:
+      type: stream
+      path: %kernel.logs_dir%/%kernel.environment%.log
+      level: error

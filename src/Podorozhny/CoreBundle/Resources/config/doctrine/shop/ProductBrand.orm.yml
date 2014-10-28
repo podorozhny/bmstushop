@@ -1,0 +1,30 @@
+Podorozhny\Model\Shop\ProductBrand:
+  type: entity
+  table: shop_product_brands
+  repositoryClass: Podorozhny\Repository\Shop\ProductBrandRepository
+  lifecycleCallbacks:
+    prePersist: [ setSlugValue ]
+    preUpdate: [ setSlugValue ]
+  oneToMany:
+    products:
+      targetEntity: Podorozhny\Model\Shop\Product
+      mappedBy: brand
+      orderBy:
+        name: ASC
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    createdAt:
+      column: created_at
+      type: datetime
+    name:
+      type: string
+      length: 255
+    slug:
+      type: string
+      length: 255
+      unique: true

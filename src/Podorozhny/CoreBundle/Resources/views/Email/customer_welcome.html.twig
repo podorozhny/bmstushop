@@ -1,0 +1,15 @@
+{% extends 'CoreBundle:Email:layout.html.twig' %}
+
+{% block subject %}Добро пожаловать, {{ user.firstname }}!{% endblock %}
+
+{% block html_content %}
+    {{ parent() }}
+    Привет, {{ user.firstname }}!<br />
+    <br />
+    Для подтверждения регистрации пройдите по ссылке:<br />
+    <h2>
+        <a target="_blank" href="{{ url('frontend_registration_confirm', { 'token': user.confirmationToken }) }}">
+            {{ url('frontend_registration_confirm', { 'token': user.confirmationToken }) }}
+        </a>
+    </h2>
+{% endblock %}

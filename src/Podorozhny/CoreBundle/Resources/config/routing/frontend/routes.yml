@@ -1,0 +1,9 @@
+frontend_security:
+  resource: "@CoreBundle/Resources/config/routing/frontend/security.yml"
+
+frontend_registration:
+  resource: "@CoreBundle/Resources/config/routing/frontend/registration.yml"
+  prefix: /registration
+
+frontend_page:
+  resource: "@CoreBundle/Resources/config/routing/frontend/page.yml"

@@ -1,0 +1,12 @@
+frontend_registration_register:
+  pattern: /
+  defaults:
+    _controller: podorozhny.frontend.controller.registration:registerAction
+
+frontend_registration_confirm:
+  pattern: /confirm/{token}
+  defaults:
+    _controller: podorozhny.frontend.controller.registration:confirmAction
+  requirements:
+    _method: GET
+    token: .+

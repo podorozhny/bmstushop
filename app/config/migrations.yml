@@ -1,0 +1,5 @@
+doctrine_migrations:
+  dir_name: %kernel.root_dir%/migrations
+  namespace: Podorozhny\Migrations
+  table_name: migrations
+  name: Podorozhny Migrations

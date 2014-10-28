@@ -1,0 +1,15 @@
+services:
+  podorozhny.support.contact.form.factory:
+    class: Podorozhny\CoreBundle\Form\Factory\FormFactory
+    arguments:
+      - @form.factory
+      - support_contact
+      - @podorozhny.support.contact.form.type
+      - [Default]
+
+  podorozhny.support.contact.form.type:
+    class: Podorozhny\CoreBundle\Form\Type\Support\ContactFormType
+    arguments:
+      - Podorozhny\Model\Support\Contact
+    tags:
+      - { name: form.type, alias: support_contact_form_type }

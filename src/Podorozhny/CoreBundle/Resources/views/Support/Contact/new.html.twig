@@ -1,0 +1,32 @@
+{% extends 'CoreBundle:Support:layout.html.twig' %}
+
+{% block title %}Contact Us / {{ parent() }}{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <section class="site-section site-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-3 site-block">
+                    <div class="site-block">
+                        <h3 class="h2 site-heading"><strong>Company</strong> Inc</h3>
+                        <address>
+                            <strong>{{ podorozhny_company_name }}, LLC.</strong> <br />
+                            ул. Ленина, дом&nbsp;7, стр.&nbsp;1<br />
+                            Москва, 123456<br />
+                            Россия <br />
+                            <i class="fa fa-phone"></i> +7 (495) 123-45-67<br />
+                            <i class="fa fa-envelope-o"></i> <a href="mailto:contact@dododev.ru">contact@bmstushop.local</a>
+                        </address>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-9 site-block">
+                    <h3 class="h2 site-heading"><strong>Contact</strong> Form</h3>
+                    <form class="form-horizontal form-bordered" action="{{ path('support_contact_create') }}" method="post" {{ form_enctype(form) }} id="form-contact" novalidate="novalidate">
+                        {{ form_widget(form) }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

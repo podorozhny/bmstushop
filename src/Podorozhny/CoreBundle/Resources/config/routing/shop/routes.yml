@@ -1,0 +1,8 @@
+shop_product:
+  resource: "@CoreBundle/Resources/config/routing/shop/product.yml"
+
+shop_product_brand:
+  resource: "@CoreBundle/Resources/config/routing/shop/product_brand.yml"
+
+shop_product_category:
+  resource: "@CoreBundle/Resources/config/routing/shop/product_category.yml"

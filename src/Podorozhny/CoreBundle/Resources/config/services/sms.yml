@@ -1,0 +1,19 @@
+parameters:
+  podorozhny.sms.smsru.api_id:      '1fc47c1d-125f-ac64-f1e3-63becd2c6a55'
+  podorozhny.sms.smsru.login:       '926 271 00 58'
+  podorozhny.sms.smsru.password:    '29574l9q0G'
+  podorozhny.sms.smsru.sender_name: 'BMSTUShop'
+
+services:
+  smsru:
+    class: Zelenin\Smsru
+    calls:
+      - [setApiId, [%podorozhny.sms.smsru.api_id%]]
+      - [setLogin, [%podorozhny.sms.smsru.login%]]
+      - [setPassword, [%podorozhny.sms.smsru.password%]]
+
+  podorozhny.sms.sender:
+    class: Podorozhny\Sms\Sender
+    arguments:
+      - @smsru
+      - %podorozhny.sms.smsru.sender_name%

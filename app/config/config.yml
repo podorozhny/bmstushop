@@ -1,0 +1,51 @@
+imports:
+  - { resource: parameters.yml }
+  - { resource: security.yml }
+  - { resource: doctrine.yml }
+
+framework:
+  translator:
+    fallback: "%locale%"
+  secret: "%secret%"
+  router:
+    resource: "%kernel.root_dir%/config/routing.yml"
+    strict_requirements: %kernel.debug%
+  form: true
+  csrf_protection: true
+  validation:
+    enable_annotations: false
+  templating:
+    engines: ['twig']
+  default_locale: "%locale%"
+  trusted_hosts: ~
+  trusted_proxies: ~
+  session: ~
+
+twig:
+  form:
+    resources:
+      - 'CoreBundle::forms.html.twig'
+  debug: "%kernel.debug%"
+  strict_variables: "%kernel.debug%"
+  globals:
+    podorozhny_locale_names:                "%podorozhny.locale_names%"
+    podorozhny_company_year:                "%podorozhny.company.year%"
+    podorozhny_company_name:                "%podorozhny.company.name%"
+    podorozhny_company_strongname:          "%podorozhny.company.strongname%"
+    podorozhny_company_desc:                "%podorozhny.company.desc%"
+    podorozhny_uploader_relative_path:      "%podorozhny.uploader.relative.path%"
+
+assetic:
+  debug: "%kernel.debug%"
+  use_controller: false
+  bundles: ['CoreBundle']
+
+knp_gaufrette:
+  adapters:
+    podorozhny_image:
+      local:
+        directory: %podorozhny.uploader.path%
+        create: true
+  filesystems:
+    podorozhny_image:
+      adapter: %podorozhny.uploader.filesystem%
