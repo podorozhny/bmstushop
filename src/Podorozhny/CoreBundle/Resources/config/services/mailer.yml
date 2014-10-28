@@ -1,6 +1,6 @@
 parameters:
-  podorozhny.mailer.mailgun.api_key: key-7f1110d1e63d5cedd974261f868b263f
-  podorozhny.mailer.mailgun.public_api_key: pubkey-d92484fe4544265a6134923e979a8577
+  podorozhny.mailer.mailgun.api_key: ~
+  podorozhny.mailer.mailgun.public_api_key: ~
   podorozhny.mailer.mailgun.domain: bmstushop.local
 
   podorozhny.mailer.contact.template: CoreBundle:Email:contact.html.twig
