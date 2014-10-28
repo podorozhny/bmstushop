@@ -133,7 +133,7 @@ com_crashlytics_export_strings.xml
 
 
 
-
+*~
 
 /app/tmp/*
 !app/tmp/.gitkeep
