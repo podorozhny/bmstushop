@@ -134,18 +134,15 @@ com_crashlytics_export_strings.xml
 
 
 *~
-
+composer.lock
 /app/tmp/*
 !app/tmp/.gitkeep
 /app/sessions/*
 !app/sessions/.gitkeep
-
 /var/tmp/*
 !var/tmp/.gitkeep
 /var/sessions/*
 !var/sessions/.gitkeep
-
 /web/bundles/
 /web/uploads/
-
 /assets/
