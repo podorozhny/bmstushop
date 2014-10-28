@@ -5,19 +5,16 @@ namespace Podorozhny\CoreBundle\EventListener\Frontend;
 use Podorozhny\CoreBundle\Event\Frontend\UserEvent;
 use Podorozhny\CoreBundle\Event\Frontend\UserEvents;
 use Podorozhny\Mailer\Frontend\CustomerWelcomeMailer;
-use Podorozhny\Mailer\Frontend\EmailConfirmationMailer;
 use Podorozhny\Manager\Frontend\UserManager;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ConfirmationListener implements EventSubscriberInterface {
     private $userManager;
     private $customerWelcomeMailer;
-    private $emailConfirmationMailer;
 
-    public function __construct(UserManager $userManager, CustomerWelcomeMailer $customerWelcomeMailer, EmailConfirmationMailer $emailConfirmationMailer) {
+    public function __construct(UserManager $userManager, CustomerWelcomeMailer $customerWelcomeMailer) {
         $this->userManager             = $userManager;
         $this->customerWelcomeMailer   = $customerWelcomeMailer;
-        $this->emailConfirmationMailer = $emailConfirmationMailer;
     }
 
     public static function getSubscribedEvents() {
