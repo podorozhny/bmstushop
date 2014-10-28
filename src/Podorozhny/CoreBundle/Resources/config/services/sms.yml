@@ -1,7 +1,7 @@
 parameters:
-  podorozhny.sms.smsru.api_id:      '1fc47c1d-125f-ac64-f1e3-63becd2c6a55'
-  podorozhny.sms.smsru.login:       '926 271 00 58'
-  podorozhny.sms.smsru.password:    '29574l9q0G'
+  podorozhny.sms.smsru.api_id:      ~
+  podorozhny.sms.smsru.login:       ~
+  podorozhny.sms.smsru.password:    ~
   podorozhny.sms.smsru.sender_name: 'BMSTUShop'
 
 services:
