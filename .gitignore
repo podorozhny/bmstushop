@@ -145,4 +145,8 @@ composer.lock
 !var/sessions/.gitkeep
 /web/bundles/
 /web/uploads/
+/web/css/
+/web/fonts/
+/web/img/
+/web/js/
 /assets/
